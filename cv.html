@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Alex Kunwar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #1a1d29;
+            color: #e9ecef;
+        }
+        .nav-tab {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-tab.active {
+            border-bottom-color: #4a90e2;
+            color: #4a90e2;
+        }
+        .nav-tab:hover {
+            color: #4a90e2;
+            background: rgba(74, 144, 226, 0.1);
+        }
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #28a745;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .cv-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .cv-section:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(74, 144, 226, 0.3);
+        }
+        .experience-item {
+            border-left: 3px solid #4a90e2;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .skill-item {
+            background: rgba(74, 144, 226, 0.15);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            color: #4a90e2;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        .skill-item:hover {
+            background: rgba(74, 144, 226, 0.25);
+            transform: translateY(-1px);
+        }
+        .achievement-badge {
+            background: rgba(40, 167, 69, 0.15);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            color: #28a745;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.25rem;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="status-indicator"></div>
+                    <h1 class="text-xl font-bold text-white">Alex Kunwar</h1>
+                    <span class="text-sm text-blue-400">Cybersecurity Professional</span>
+                </div>
+                <div class="flex space-x-1">
+                    <a href="index.html" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium">Home</a>
+                    <a href="cv.html" class="nav-tab active px-4 py-2 rounded-lg text-sm font-medium">CV</a>
+                    <a href="contact.html" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CV Header -->
+    <section class="pt-24 pb-12 bg-gradient-to-r from-gray-900 to-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h1 class="text-4xl font-bold text-white mb-2">Curriculum Vitae</h1>
+                    <p class="text-xl text-blue-400 mb-4">Alex Kunwar - Cybersecurity Professional</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="achievement-badge">Best Speaker Award at Scotland SASIG</span>
+                        <span class="achievement-badge">First Class Honours</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="text-sm text-gray-400 mb-2">Last Updated</div>
+                    <div class="text-white font-mono">2025-01-27</div>
+                    <button onclick="downloadCV()" class="download-btn mt-4 text-white px-6 py-2 rounded-lg font-semibold">
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Content -->
+    <section class="py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Left Column - Personal Info & Skills -->
+                <div class="space-y-6">
+                    <!-- Personal Information -->
+                    <div class="cv-section rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                            Personal Information
+                        </h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Full Name:</span>
+                                <span class="text-white">Alex Kunwar</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Location:</span>
+                                <span class="text-white">Edinburgh, UK</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Email:</span>
+                                <span class="text-blue-400">alex@alexkunwar.com</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Status:</span>
+                                <span class="text-green-400">Available for opportunities</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Core Skills -->
+                    <div class="cv-section rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            Core Skills
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm text-gray-300">Vulnerability Management</span>
+                                    <span class="text-blue-400 text-sm font-semibold">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm text-gray-300">Threat Detection</span>
+                                    <span class="text-blue-400 text-sm font-semibold">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm text-gray-300">Security Policy</span>
+                                    <span class="text-blue-400 text-sm font-semibold">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm text-gray-300">Incident Response</span>
+                                    <span class="text-blue-400 text-sm font-semibold">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Tools -->
+                    <div class="cv-section rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Technical Skills
+                        </h3>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-300 mb-2">Security Tools</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="skill-item text-xs">Microsoft Defender</span>
+                                    <span class="skill-item text-xs">Metasploit</span>
+                                    <span class="skill-item text-xs">Splunk</span>
+                                    <span class="skill-item text-xs">Burp Suite</span>
+                                    <span class="skill-item text-xs">Nmap</span>
+                                    <span class="skill-item text-xs">Nessus</span>
+                                    <span class="skill-item text-xs">Wireshark</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-300 mb-2">Frameworks</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="skill-item text-xs">NIST</span>
+                                    <span class="skill-item text-xs">OWASP</span>
+                                    <span class="skill-item text-xs">Zero Trust</span>
+                                    <span class="skill-item text-xs">GDPR</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-300 mb-2">Programming</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="skill-item text-xs">Python</span>
+                                    <span class="skill-item text-xs">Bash</span>
+                                    <span class="skill-item text-xs">Java</span>
+                                    <span class="skill-item text-xs">TypeScript</span>
+                                    <span class="skill-item text-xs">Docker</span>
+                                    <span class="skill-item text-xs">Git</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Experience & Education -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Professional Experience -->
+                    <div class="cv-section rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-6 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+                            </svg>
+                            Professional Experience
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Current Position -->
+                            <div class="experience-item">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div>
+                                        <h4 class="text-xl font-bold text-white">Security Analyst</h4>
+                                        <p class="text-blue-400 font-semibold">Retail Energy Code Company</p>
+                                    </div>
+                                    <div class="text-right text-sm text-gray-400">
+                                        <div>July 2024 - Present</div>
+                                        <div>London, UK (Remote)</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 text-gray-300 text-sm">
+                                    <p>• Reduced organizational vulnerability score by 40% through strategic remediation and proactive risk management</p>
+                                    <p>• Conduct security investigations producing detailed reports for executive-level decision-making</p>
+                                    <p>• Develop and implement information security policies and JML processes across employee lifecycle</p>
+                                    <p>• Act as security consultant for UK-wide Consumer Consent Service rollout ensuring compliance</p>
+                                </div>
+                            </div>
+
+                            <!-- University Roles -->
+                            <div class="experience-item">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div>
+                                        <h4 class="text-xl font-bold text-white">IT Help Desk & Teaching Assistant</h4>
+                                        <p class="text-blue-400 font-semibold">Edinburgh Napier University</p>
+                                    </div>
+                                    <div class="text-right text-sm text-gray-400">
+                                        <div>Nov 2022 - Jun 2024</div>
+                                        <div>Edinburgh, UK</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 text-gray-300 text-sm">
+                                    <p>• Resolved 500+ technical issues in hardware, software, security, and networking</p>
+                                    <p>• Responded to security incidents including phishing attacks and account compromises</p>
+                                    <p>• Led lab sessions for 150+ third-year students in Network Security & Cryptography</p>
+                                    <p>• Collaborated with professors to develop teaching materials and optimise lab environments</p>
+                                </div>
+                            </div>
+
+                            <!-- Project Manager -->
+                            <div class="experience-item">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div>
+                                        <h4 class="text-xl font-bold text-white">Project Manager</h4>
+                                        <p class="text-blue-400 font-semibold">Shasha Network</p>
+                                    </div>
+                                    <div class="text-right text-sm text-gray-400">
+                                        <div>Jan 2024 - Apr 2024</div>
+                                        <div>Edinburgh, UK</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 text-gray-300 text-sm">
+                                    <p>• Led development of AI-powered WhatsApp bot empowering African youth with personal development tools</p>
+                                    <p>• Orchestrated cross-functional collaboration with 10+ team members across distinct roles</p>
+                                    <p>• Successfully completed project 20% ahead of schedule ensuring early user access</p>
+                                    <p>• Achieved 100% stakeholder satisfaction rate through effective resource management</p>
+                                </div>
+                            </div>
+
+                            <!-- Amazon -->
+                            <div class="experience-item">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div>
+                                        <h4 class="text-xl font-bold text-white">Team Leader</h4>
+                                        <p class="text-blue-400 font-semibold">Amazon</p>
+                                    </div>
+                                    <div class="text-right text-sm text-gray-400">
+                                        <div>Feb 2021 - Aug 2022</div>
+                                        <div>Bathgate, UK</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 text-gray-300 text-sm">
+                                    <p>• Led team of 50+ associates sorting 70,000+ parcels nightly during peak seasons</p>
+                                    <p>• Achieved 99.95% accuracy in sort compliance consistently during critical periods</p>
+                                    <p>• Implemented process improvements reducing stowing errors by 25%</p>
+                                    <p>• Ensured delivery schedules during Prime Week and Christmas peak periods</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="cv-section rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-6 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V19.5l-4 2.25-4-2.25z"></path>
+                            </svg>
+                            Education & Certifications
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h4 class="text-xl font-bold text-white">Bachelor of Engineering (Honours)</h4>
+                                <p class="text-blue-400 font-semibold mb-2">Cybersecurity & Forensics</p>
+                                <p class="text-gray-400 text-sm mb-3">Edinburgh Napier University | 2022 - 2025</p>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="achievement-badge">First Class Honours</span>
+                                    <span class="achievement-badge">NCSC Certified Degree</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">Dissertation: Development of a Real-Time AI-Based Intrusion Detection System</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-green-500 pl-6">
+                                <h4 class="text-xl font-bold text-white">Professional Certifications</h4>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center">
+                                        <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                                        <span class="text-gray-300">CISCO CCNA - Switching, Routing, and Wireless Essentials</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Awards & Recognition -->
+                    <div class="cv-section rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-6 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            Awards & Recognition
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-yellow-500 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Best Speaker of the Day</h4>
+                                    <p class="text-blue-400 text-sm">SASIG Scotland Cybersecurity Conference 2025</p>
+                                    <p class="text-gray-400 text-xs mt-1">Recognised for thought leadership and expertise in cybersecurity topics</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Committee Memberships</h4>
+                                    <p class="text-blue-400 text-sm">Cyber Scotland Connect & Edinburgh Napier Security Society</p>
+                                    <p class="text-gray-400 text-xs mt-1">Active contributor to cybersecurity community</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="status-indicator"></div>
+                    <span class="text-gray-400 font-mono text-sm">Alex Kunwar - Security Analyst</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/alex-kunwar/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/itsalexkunwar" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-6">
+                <p class="text-gray-500 text-sm">
+                    © 2025 Alex Kunwar. All rights reserved. | Built with security-first principles
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function downloadCV() {
+            // Create a simple PDF download simulation
+            const link = document.createElement('a');
+            link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent('Alex Kunwar CV - Contact for full version');
+            link.download = 'Alex_Kunwar_CV.txt';
+            link.click();
+            
+            // Show notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 right-4 bg-green-500 text-white px-4 py-2 rounded-lg z-50';
+            notification.textContent = 'CV download feature - Contact for PDF version';
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate progress bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.bg-blue-500, .bg-green-500, .bg-yellow-500, .bg-purple-500');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
+        });
+
+        const skillsSection = document.querySelector('.cv-section');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+</body>
+</html>
